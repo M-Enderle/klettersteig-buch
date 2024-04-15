@@ -1,0 +1,262 @@
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="left">
+        <div class="left-top">
+            <h1>{{ titel }}</h1>
+        </div>
+        <div class="info">
+            <div class="image-info" style="display: flex; justify-content: flex-start;">
+                <div class="left-side">
+                    <div class="rectangle" style="width: 650px; height: 900px; display: flex; justify-content: center; align-items: center;
+                        background-image: url('{{ image_url_1 }}');
+                        background-size: cover; background-position: center;">
+                    </div>
+                    <div class="smaller_images" style="display: flex; justify-content: space-between; align-items: center; margin-top: 1cm;">
+                        <div class="rectangle" style="width: 200px; height: 200px; display: flex; justify-content: center; align-items: center;
+                            background-image: url('{{ image_url_2 }}');
+                            background-size: cover; background-position: center; margin-top: 0.05cm;">
+                        </div>
+                        <div class="rectangle" style="width: 200px; height: 200px; display: flex; justify-content: center; align-items: center;
+                            background-image: url('{{ image_url_3 }}');
+                            background-size: cover; background-position: center; margin-top: 0.05cm;">
+                        </div>
+                        <div class="rectangle" style="width: 200px; height: 200px; display: flex; justify-content: center; align-items: center;
+                            background-image: url('qr.png');
+                            background-size: cover; background-position: center; margin-top: 0.05cm;">
+                        </div>
+                    </div>
+
+                    <div class="rectangle" style="width: 650px; height: 550px; display: flex; justify-content: center; align-items: center;
+                        background-image: url('map.png');
+                        background-position: center; background-repeat: no-repeat; background-size: cover;">
+
+                    </div>
+                </div>
+                
+                <div class="info-side" style="width: 100%; padding: 1cm; padding-top: 0cm;">
+                    <table style="width: 100%;">
+                        <tbody style="width: 100%;">
+                            <tr>
+                                <td class="first">Steigzeit</td>
+                                <td>
+                                    {% if climbing_time %}
+                                        {{ climbing_time }} h
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Zu & Abstiegszeit</td>
+                                <td>
+                                    {% if ascent_time and descent_time %}
+                                        {{ ascent_time }} / {{ descent_time }} h
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Gesamthöhe</td>
+                                <td>
+                                    {% if total_height %}
+                                        {{ total_height }} m
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Ausgangshöhe</td>
+                                <td>
+                                    {% if starting_height %}
+                                        {{ starting_height }} m
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Region</td>
+                                <td>
+                                    {% if region %}
+                                        {{ region }}
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first" style="width: 55%;">Schwierigkeit</td>
+                                <td style="width: 45%;">
+                                    <div style="display: flex; justify-content: flex-start; align-items: center;">
+                                        {% for sc in range(difficulty) %}
+                                            <span class="circle" style="width: 30px; height: 30px; border-radius: 50%; background-color: #333333; margin-right: 15px;"></span>
+                                        {% endfor %}
+                                        {% for sc in range(5-difficulty) %}
+                                            <span class="circle" style="width: 30px; height: 30px; border-radius: 50%; background-color: #ABABAB; margin-right: 15px;"></span>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Kondition</td>
+                                <td>
+                                    <div style="display: flex; justify-content: flex-start; align-items: center;">
+                                        {% for sc in range(condition) %}
+                                            <span class="circle" style="width: 30px; height: 30px; border-radius: 50%; background-color: #333333; margin-right: 15px;"></span>
+                                        {% endfor %}
+                                        {% for sc in range(5-condition) %}
+                                            <span class="circle" style="width: 30px; height: 30px; border-radius: 50%; background-color: #ABABAB; margin-right: 15px;"></span>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Kraft</td>
+                                <td>
+                                    <div style="display: flex; justify-content: flex-start; align-items: center;">
+                                        {% for sc in range(strength) %}
+                                            <span class="circle" style="width: 30px; height: 30px; border-radius: 50%; background-color: #333333; margin-right: 15px;"></span>
+                                        {% endfor %}
+                                        {% for sc in range(5-strength) %}
+                                            <span class="circle" style="width: 30px; height: 30px; border-radius: 50%; background-color: #ABABAB; margin-right: 15px;"></span>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Aussicht</td>
+                                <td>
+                                    <div style="display: flex; justify-content: flex-start; align-items: center;">
+                                        {% for sc in range(scenery) %}
+                                            <span class="circle" style="width: 30px; height: 30px; border-radius: 50%; background-color: #333333; margin-right: 15px;"></span>
+                                        {% endfor %}
+                                        {% for sc in range(5-scenery) %}
+                                            <span class="circle" style="width: 30px; height: 30px; border-radius: 50%; background-color: #ABABAB; margin-right: 15px;"></span>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Bestiegen am</td>
+                                <td>____________</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="monate">
+                {% for month in months %}
+                    <p class="{% if month.selected %}ausgewählt{% endif %}">{{ month.name }}</p>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="right">
+        <div class="topo" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+            <img src="topo.jpg" style="max-width: 90%; max-height: 90%;">
+        </div>
+    </div>
+
+</body>
+    
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        font-family: 'Sora', sans-serif;
+    }
+    
+    .left {
+        width: 50%;
+        height: 100%;
+        display: inline-block;
+        float: left;
+    }
+    
+    .right {
+        width: 50%;
+        height: 100%;
+        display: inline-block;
+        float: right;
+    }
+    
+    h1 {
+        font-size: 130px;
+        margin: 0;
+        color: rgb(0, 0, 0);
+        font-weight: 600;
+        min-height: 350px;
+    
+    }
+    
+    h2 {
+        font-size: 70px;
+        margin: 0;
+        color: black;
+        font-weight: 500;
+    }
+    
+    .left-top {
+        padding: 3cm 2cm;
+        padding-bottom: 0.5cm;
+    }
+    
+    .monate {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+    
+    .monate p {
+        font-size: 30px;
+        width: 100%;
+        text-align: center;
+        background-color: #cacaca;
+        color: white;
+        border: 0;
+        font-weight: 200;
+        padding: 0.5cm 0;
+    }
+    
+    .monate p.ausgewählt {
+        background-color: #888888;
+        color: white;
+    }
+    
+    .monate p:first-child {
+        border-radius: 20px 0 0 20px;
+    }
+    
+    .monate p:last-child {
+        border-radius: 0 20px 20px 0;
+    }
+
+    .info {
+        padding: 2cm;
+    }
+    
+    td {
+        font-size: 45px;
+        padding: 0.5cm 0.6cm;
+        padding-right: 0;
+    }
+
+    .first {
+        font-weight: 800;
+    }
+
+</style>
+
+</html>

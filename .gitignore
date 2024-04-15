@@ -1,0 +1,6 @@
+.venv
+chrome-linux64
+chromedriver-linux64
+logs
+out
+temp

@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "klettersteige"
+version = "0.1.0"
+description = ""
+authors = ["Moritz Enderle <private@moritzenderle.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jupyter = "^1.0.0"
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.3"
+gpxo = "^0.1.6"
+folium = "^0.16.0"
+gpxpy = "^1.6.2"
+branca = "^0.7.1"
+selenium = "^4.19.0"
+pdfkit = "^1.0.0"
+seaborn = "^0.13.2"
+geopandas = "^0.14.3"
+shapely = "^2.0.3"
+pillow = "^10.3.0"
+qrcode = "^7.4.2"
+pyshorteners = "^1.0.1"
+isort = "^5.13.2"
+black = "^24.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
